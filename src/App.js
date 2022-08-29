@@ -9,17 +9,18 @@ import { useSelector } from 'react-redux';
 
 function App() {
 
- 
+ const keys=window.localStorage.getItem('encryptedKey')
+console.log("local",keys)
   const key=useSelector((state)=>state.login.key)
-  console.log(key)
+  console.log("keySlice",key)
 
   return (
     <div className="App">
      <Header/>
      <h1>React Redux Toolkit with Protected Routes</h1>
      <Routes>
-      <Route path="home" element={key!==null?<Home/>:null}/>
-      <Route path="contacts" element={key!==null?<Contacts/>:null}/>
+      <Route path="home" element={keys!==null?<Home/>:null}/>
+      <Route path="contacts" element={keys!==null?<Contacts/>:null}/>
 
      </Routes>
     </div>

@@ -20,7 +20,10 @@ const LoginForm = ({ open }) => {
   const login = useSelector((state) => state.login);
 
   console.log(login.email);
-
+  const handleLogin=()=>{
+    dispatch(loginHandler())
+    dispatch(handleClickClose())
+  }
   const dispatch = useDispatch();
   return (
     <Box>
@@ -41,11 +44,8 @@ const LoginForm = ({ open }) => {
           />
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={() => dispatch(loginHandler())}>
+          <Button color="primary" onClick={handleLogin}>
             Login
-          </Button>
-          <Button onClick={() => dispatch(handleClickClose())} color="primary">
-            Close
           </Button>
         </DialogActions>
       </Dialog>

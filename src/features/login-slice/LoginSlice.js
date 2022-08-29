@@ -19,11 +19,15 @@ const LoginSlice=createSlice({
         },
         loginHandler:(state)=>{
             state.key="afc651af-79a0-44dd-bd53-539ecafb1538"
-            // window.localStorage.setItem('encryptedKey',state.key)
+            return window.localStorage.setItem('encryptedKey',state.key)
+        },
+        logoutHandler:(state)=>{
+            return window.localStorage.removeItem('encryptedKey')
         }
-    }
+    },
+   
 })
 
 export default LoginSlice.reducer
 
-export const{emailHandler,passwordHandler,loginHandler}=LoginSlice.actions
+export const{emailHandler,passwordHandler,loginHandler,logoutHandler}=LoginSlice.actions
